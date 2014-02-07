@@ -6803,6 +6803,9 @@ Bitcoin.Util = {
             font: 200% "Lucida Console", "Lucida Sans Typewriter", monospace, arial, sans-serif;
         }
 
+
+
+
         #pwbackuplabel {
             position: absolute;
             top: 25px;
@@ -6877,9 +6880,14 @@ Bitcoin.Util = {
                 -webkit-border: 0px 0px 0px 0px;
             }
 
+            #printcontrols {
+                display: none;
+            }
+
             .submit {
                 display: none;
             }
+
         }
     </style>
 </head>
@@ -6931,7 +6939,8 @@ Bitcoin.Util = {
                     <span><label>Distributed Passphrase Backup?&nbsp;&nbsp;</label><input type="checkbox" id="backup" checked="checked" /></span>&nbsp;&nbsp;&nbsp;
                     <span><label>Shares:</label> <input type="text" class="sharesinput" id="backupshares" value="5" /></span>&nbsp;&nbsp;
                     <span><label>Required to Recover:</label> <input type="text" class="sharesinput" id="backupsharesrequired" value="3" /></span><br /><br />
-                    <span><input class="submit" type="button" value="Generate Wallet" onclick="ninja.wallets.encryptedwallet.build(document.getElementById('encryptpassphrase').value);" /></span>
+                    <span><input class="submit" type="button" value="Generate Wallet" onclick="ninja.wallets.encryptedwallet.build(document.getElementById('encryptpassphrase').value);" /></span><br /><br />
+                    <div style="text-align: center"><a href="javascript:void(0)" onclick="ninja.wallets.menu.opengenerateexisting();">Generate your Encrypted Bitcoin Wallet using an existing private key.</a></div>
                 </div>
                 <div id="decrypt" class="hide">
                     <h1>Decrypt Encrypted Wallet</h1>
@@ -7161,7 +7170,7 @@ ninja.privateKey = {
 			var encryptedKey = [0x01, 0x42, flagByte].concat(salt);
 			encryptedKey = encryptedKey.concat(Crypto.AES.encrypt(privKeyBytes, derivedBytes.slice(32), AES_opts));
 			encryptedKey = encryptedKey.concat(Bitcoin.Util.dsha256(encryptedKey).slice(0, 4));
-			callback(Bitcoin.Base58.encode(encryptedKey));
+			callback(address, Bitcoin.Base58.encode(encryptedKey));
 		});
 	},
 	BIP38GenerateIntermediatePointAsync: function (passphrase, lotNum, sequenceNum, callback) {
@@ -7679,6 +7688,24 @@ ninja.foreachSerialized = function (collection, whatToDo, onComplete) {
         }
     </script>
     <script type="text/javascript">
+        ninja.wallets.theme = {
+            change: function (themename) {
+                if (themename == "Original Orange") {
+                    document.getElementById('front').setAttribute("src", "originalorange.jpg");
+                }
+                if (themename == "Original White") {
+                    document.getElementById('front').setAttribute("src", "originalwhite.jpg");
+                }
+                if (themename == "Light Swirl") {
+                    document.getElementById('front').setAttribute("src", "lightswirl.jpg");
+                }
+                if (themename == "Dark Swirl") {
+                    document.getElementById('front').setAttribute("src", "darkswirl.jpg");
+                }
+            }
+        }
+    </script>
+    <script type="text/javascript">
         ninja.translator = {
             get: function (id) {
                 return id;
@@ -7734,7 +7761,12 @@ ninja.foreachSerialized = function (collection, whatToDo, onComplete) {
             build: function (passphrase) {
 
                 if ((existingkey == true) && (document.getElementById("encryptprivatekey").value == "")) {
-                    alert("Private key is required. You have enabled an option to use an existing private key to generate an encryped wallet. Please enter a private key and try again or click 'Generate' above to disable the existing private key option.");
+                    alert("Private key is required. You have enabled an option to use an existing private key to generate an encryped wallet. Please enter a private key and try again.");
+                    return;
+                }
+
+                if ((existingkey == true) && (!Bitcoin.ECKey.isWalletImportFormat(document.getElementById("encryptprivatekey").value))) {
+                    alert("The private key is not in the expected format. You have enabled an option to use an existing private key to generate an encryped wallet. Please enter a private key and try again.");
                     return;
                 }
 
@@ -7807,16 +7839,17 @@ ninja.foreachSerialized = function (collection, whatToDo, onComplete) {
                 document.getElementById("results").style.display = "block";
 
                 var div = document.createElement("div");
-                div.innerHTML = "<input class='submit' style='margin: 0 0 20px 0;' type='button' value='Print Wallet' onclick='window.print();' />";
-
+                div.setAttribute("id", "printcontrols");
+                div.innerHTML = "<input class='submit' style='margin: 0 0 20px 0;' type='button' value='Print Wallet' onclick='window.print();' /><br />";
+                div.innerHTML += "Choose Theme:<br /><select name='theme' onchange='ninja.wallets.theme.change(this.options[this.selectedIndex].value)'><option value='Original Orange' selected>Orignal Orange</option><option value='Original White'>Original White</option><option value='Light Swirl'>Light Swirl</option><option value='Dark Swirl'>Dark Swirl</option></select><br /><br />";
+                
                 document.getElementById("sharedkeyarea").appendChild(div);
 
                 var divwallet = document.createElement("div");
                 divwallet.setAttribute("id", "paperwallet");
 
-
                 var frontimg = document.createElement("img");
-                frontimg.setAttribute("src", "front.jpg");
+                frontimg.setAttribute("src", "originalorange.jpg");
                 frontimg.setAttribute("id", "front");
                 divwallet.appendChild(frontimg);
 
