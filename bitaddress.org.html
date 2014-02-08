@@ -6342,7 +6342,9 @@ Bitcoin.Util = {
         #seedpooldisplay {
             font-family: "Lucida Console", "Lucida Sans Typewriter", monospace, arial, sans-serif;
             font-size: 1em;
-            width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 690px;
             padding: 15px 5px;
             word-wrap: break-word;
         }
@@ -6410,6 +6412,15 @@ Bitcoin.Util = {
             margin: 20px auto;
         }
 
+        #generateentropy {
+            width: 900px;
+            text-align: center;
+        }
+
+        #generatemessage {
+            text-align: left;
+        }
+        
         header {
             width: 950px;
             height: 105px;
@@ -6665,6 +6676,10 @@ Bitcoin.Util = {
             color: #FFF;
         }
 
+        h1 {
+            text-align: left;
+        }
+
 
         body {
             background: #282828;
@@ -6899,7 +6914,7 @@ Bitcoin.Util = {
             <div id="logo"><h1>encrypted<a href="javascript:void(0)">Bitcoin</a>Wallet</h1></div>
             <nav>
                 <ul class="sf-menu" id="nav">
-                    <li id="menuabout"><a href="javascript:void(0)#" onclick="ninja.wallets.menu.openabout();">about</a></li>
+                    <li id="menuabout"><a href="javascript:void(0)" onclick="ninja.wallets.menu.openabout();">about</a></li>
                     <li id="menugenerate" class="selected"><a href="javascript:void(0)" onclick="ninja.wallets.menu.opengenerate();">generate wallet</a></li>
                     <li id="menudecrypt"><a href="javascript:void(0)" onclick="ninja.wallets.menu.opendecrypt();">decrypt wallet</a></li>
                     <li id="menurecover"><a href="javascript:void(0)" onclick="ninja.wallets.menu.openrecover();">recover passphrase</a></li>
@@ -6916,22 +6931,25 @@ Bitcoin.Util = {
                 Your passphrase is very important. Choose a passphrase made up of several words and numbers. If you forget your passphrase and have no backup, your Encrypted Bitcoin Wallet is worthless.<br /><br />
                 It is highly recommended you include a Distributed Passphrase Backup when you generate your wallet. The shares of the Distributed Passphrase Backup should be stored in separate locations. You must have at least the minimum number of required shares to recover a passphrase. Any less than the required minimum shares provides no hint of the passphrase.<br /><br />
                 Keep several copies of your Encrypted Bitcoin Wallet. You can choose to store a copy of your Encrypted Bitcoin Wallet with each share of your Distributed Passphrase Backup. A single share of the Distributed Passphrase Backup and the wallet are not enough to decrypt wallet, so they can safely be stored together.<br /><br />
-                You can <a href="http://encryptedbitcoinwallet.com/encryptedbitcoinwallet.zip">download</a> a copy of Encrypted Bitcoin Wallet to use offline! Simply extract the zip file and open encryptedbitcoinwallet.html.<br /><br />
+                For increased security you can <a href="http://encryptedbitcoinwallet.com/encryptedbitcoinwallet.zip">download</a> a copy of Encrypted Bitcoin Wallet to use offline. Simply extract the zip file and open encryptedbitcoinwallet.html.<br /><br />
                 If you have an existing Bitcoin address that you would like to create a BIP38 encrypted wallet from, you can enter the existing private key and new passphrase <a href="javascript:void(0)" onclick="ninja.wallets.menu.opengenerateexisting();">here</a>. This is not recommended. You are encouraged to use the <a href="javascript:void(0)" onclick="    ninja.wallets.menu.opengenerate();">default option</a> which generates a new address with a private key that is not revealed until it is decrypted.<br /><br />
                 <br />
                 <h1>Credits</h1>
                 Encrytped Bitcoin Wallet was created by <a href="http://jeffhockema.com">Jeff Hockema</a>. The project is open source and <a href="https://github.com/iceburn2003/encryptedbitcoinwallet.com">available on GitHub</a> as a fork of <a href="http://bitaddress.org">bitaddress.org</a> with a unique feature set and integration with <a href="https://github.com/amper5and/secrets.js/">secrets.js</a> for distributed passphrase backups.<br /><br />
                 Wallet backgrounds by <a href="https://secure.flickr.com/photos/jason_benjamin/">PerfectHUE</a>. Distributed Passphrase Backup background by <a href="http://en.reddit.com/r/Bitcoin/comments/1a03gu/as_a_3d_artist_this_is_my_take_on_the_bitcoin/">nagdude</a>.
-</div>
+            </div>
             <div id="main_content">
                 <div id="busyblock"></div>
                 <div id="generateentropy">
                     <h1>Generating Entropy</h1>
-                    <span id="generatelabelmovemouse">MOVE your mouse around to add some extra randomness...</span><span id="mousemovelimit"></span><br />
-                    <span id="generatelabelkeypress">OR type some random characters into this textbox</span> <input type="text" class="contact" id="generatekeyinput" onkeypress="ninja.seeder.seedKeyPress(event);" /><br />
-                    <div id="seedpooldisplay"></div>
-                    <div id="seedpoolarea"><textarea rows="16" cols="62" id="seedpool"></textarea></div><br />
-                </div>
+                    <div id="generatemessage">Please move your mouse to provide random human input for the secure wallet generator.</div>
+                    <br /><br /><br /><br />
+                    <div id="generatelabelmovemouse">MOVE your mouse around or TYPE some random characters in the textbox below...</div>
+                    <div id="mousemovelimit"><br /></div>
+                    <input type="text" class="contact" id="generatekeyinput" onkeypress="ninja.seeder.seedKeyPress(event);" /><br />
+                    <div id="seedpooldisplay"><br /><br /><br /><br /><br /><br /><br /></div>
+                    <div id="seedpoolarea"><textarea rows="16" cols="62" id="seedpool"></textarea></div>
+                    </div>
                 <div id="generate" class="hide">
                     <h1>Generate Encrypted Wallet</h1>
                     <div id="privatekeyspan" class="hide"><span><label>Private Key:</label> <input type="text" class="contact" id="encryptprivatekey" /><br /><br /></span></div>
@@ -6957,7 +6975,7 @@ Bitcoin.Util = {
                 </div>
             </div>
 
-            <div id="descriptions">
+            <div id="descriptions" class="hide">
                 <div id="generatedesc" class="hide">
                     Create a highly secure <a href='https://github.com/bitcoin/bips/blob/master/bip-0038.mediawiki'>BIP38</a> encrypted Bitcoin wallet for offline storage.<br /><br />
                     Distributed Passphrase Backup uses <a href='https://en.wikipedia.org/wiki/Shamir%27s_secret_sharing'>Shamir's Secret Sharing</a> algorithm to create highly secure distributed backup of your passphrase. With the required number of shares you can restore the original passphrase.
@@ -7579,6 +7597,9 @@ ninja.foreachSerialized = function (collection, whatToDo, onComplete) {
         var existingkey = false;
         ninja.wallets.menu = {
             openabout: function () {
+                if (ninja.seeder.seeding) {
+                    return;
+                }
                 document.getElementById('encryptpassphrase').value = "";
                 document.getElementById("menuabout").className = "selected";
                 document.getElementById("menugenerate").className = "";
@@ -7593,6 +7614,7 @@ ninja.foreachSerialized = function (collection, whatToDo, onComplete) {
                 document.getElementById("decryptdesc").style.display = "none";
                 document.getElementById("generate").style.display = "none";
                 document.getElementById("generatedesc").style.display = "none";
+                document.getElementById("descriptions").style.display = "none";
                 document.getElementById("results").style.display = "none";
             },
 
@@ -7614,6 +7636,7 @@ ninja.foreachSerialized = function (collection, whatToDo, onComplete) {
                 document.getElementById("decryptdesc").style.display = "none";
                 document.getElementById("generate").style.display = "block";
                 document.getElementById("generatedesc").style.display = "block";
+                document.getElementById("descriptions").style.display = "block";
                 document.getElementById("privatekeyspan").style.display = "block";
                 document.getElementById("results").style.display = "none";
             },
@@ -7636,6 +7659,7 @@ ninja.foreachSerialized = function (collection, whatToDo, onComplete) {
                 document.getElementById("decryptdesc").style.display = "none";
                 document.getElementById("generate").style.display = "block";
                 document.getElementById("generatedesc").style.display = "block";
+                document.getElementById("descriptions").style.display = "block";
                 document.getElementById("privatekeyspan").style.display = "none";
                 document.getElementById("results").style.display = "none";
             },
@@ -7657,6 +7681,7 @@ ninja.foreachSerialized = function (collection, whatToDo, onComplete) {
                 document.getElementById("recoverdesc").style.display = "none";
                 document.getElementById("generate").style.display = "none";
                 document.getElementById("generatedesc").style.display = "none";
+                document.getElementById("descriptions").style.display = "block";
                 document.getElementById("decrypt").style.display = "block";
                 document.getElementById("decryptdesc").style.display = "block";
                 document.getElementById("results").style.display = "none";
@@ -7679,6 +7704,7 @@ ninja.foreachSerialized = function (collection, whatToDo, onComplete) {
                 document.getElementById("about").style.display = "none";
                 document.getElementById("generate").style.display = "none";
                 document.getElementById("generatedesc").style.display = "none";
+                document.getElementById("descriptions").style.display = "block";
                 document.getElementById("decrypt").style.display = "none";
                 document.getElementById("decryptdesc").style.display = "none";
                 document.getElementById("recover").style.display = "block";
