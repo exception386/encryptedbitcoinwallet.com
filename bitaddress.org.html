@@ -7967,14 +7967,14 @@ ninja.foreachSerialized = function (collection, whatToDo, onComplete) {
         ninja.wallets.decryptwallet = {
             decryptnow: function () {
                 var bip38 = false;
-                var key = document.getElementById("encryptedprivatekey").value.toString().replace(/^\s+|\s+$/g, ""); // trim white space
+                var key = document.getElementById("encryptedprivatekey").value.toString().replace(/\s/g, ""); // remove spaces
 
                 if (key == "") {
                     alert("An encrypted private key is required.");
                     return;
                 }
                 if (ninja.privateKey.isBIP38Format(key)) {
-                    var passphrase = document.getElementById("decryptpassphrase").value.toString().replace(/^\s+|\s+$/g, ""); // trim white space
+                    var passphrase = document.getElementById("decryptpassphrase").value.toString();
                     if (passphrase == "") {
                         alert("bip38alertpassphraserequired");
                         return;
@@ -8014,7 +8014,7 @@ ninja.foreachSerialized = function (collection, whatToDo, onComplete) {
 
 
                     var frontimg = document.createElement("img");
-                    frontimg.setAttribute("src", "front.jpg");
+                    frontimg.setAttribute("src", "originalorange.jpg");
                     frontimg.setAttribute("id", "front");
                     divwallet.appendChild(frontimg);
 
@@ -8072,7 +8072,7 @@ ninja.foreachSerialized = function (collection, whatToDo, onComplete) {
                 var reg = /^[0-9A-Fa-f]+$/;
                 var regbits = /^[3-9a-k]+$/;
                 for (var i = 1; i < recovershares; i++) {
-                    myshares[i - 1] = document.getElementById("share" + i).value.replace(/\s+/g, '');
+                    myshares[i - 1] = document.getElementById("share" + i).value.toString().replace(/\s/g, ""); // remove spaces
 
                     if (!regbits.test(myshares[i - 1].substring(0, 1))) {
                         alert("Share " + i + " has an invalid format. Must start with 3-9 or a-k.");
