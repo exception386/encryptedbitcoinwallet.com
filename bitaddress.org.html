@@ -7001,7 +7001,7 @@ Bitcoin.Util = {
         <!-- end content -->
         <!-- begin footer -->
         <footer id="myfooter">
-            <p>Created by <a href="http://jeffhockema.com">Jeff Hockema</a> 2014</p>
+            <p>Created by <a href="http://jeffhockema.com">Jeff Hockema</a> - <a href="https://github.com/iceburn2003/encryptedbitcoinwallet.com">v1.3</a></p>
         </footer>
         <!-- end footer -->
 
@@ -7724,15 +7724,211 @@ ninja.foreachSerialized = function (collection, whatToDo, onComplete) {
             change: function (themename) {
                 if (themename == "Original Orange") {
                     document.getElementById('front').setAttribute("src", "originalorange.jpg");
+                    var elements = document.getElementsByClassName("cback");
+                    for (var i = 0; i < elements.length; i++) {
+                        elements[i].setAttribute("src", "back.jpg");
+                    }
+                    elements = document.getElementsByClassName("cqrcode_pwbackup");
+                    for (var i = 0; i < elements.length; i++) {
+                        elements[i].style.top = "130px";
+                        elements[i].style.left = "73px";
+                        elements[i].style.height = "200px";
+                        elements[i].style.width = "200px";
+                    }
+                    elements = document.getElementsByClassName("cpwbackup");
+                    for (var i = 0; i < elements.length; i++) {
+                        elements[i].style.top = "55px";
+                        elements[i].style.left = "20px";
+                        elements[i].style.width = "315px";
+                        elements[i].style.color = "#FFFFFF";
+                        elements[i].style.fontsize = "100%";
+                    }
+                    elements = document.getElementsByClassName("cpwbackuplabel");
+                    for (var i = 0; i < elements.length; i++) {
+                        elements[i].style.display = "block";
+                        elements[i].style.top = "25px";
+                        elements[i].style.left = "116px";
+                        elements[i].style.color = "#a90000";
+                        elements[i].style.fontsize = "140%";
+                    }
+                    document.getElementById('qrcode_public').style.top = "112px";
+                    document.getElementById('qrcode_public').style.left = "43px";
+                    document.getElementById('qrcode_public').style.height = "160px";
+                    document.getElementById('qrcode_public').style.width = "160px";
+                    document.getElementById('qrcode_private').style.top = "112px";
+                    document.getElementById('qrcode_private').style.left = "490px";
+                    document.getElementById('qrcode_private').style.height = "160px";
+                    document.getElementById('qrcode_private').style.width = "160px";
+                    document.getElementById('public').style.top = "304px";
+                    document.getElementById('public').style.left = "20px";
+                    document.getElementById('public').style.width = "215px";
+                    document.getElementById('public').style.fontSize = "160%";
+                    document.getElementById('private').style.top = "295px";
+                    document.getElementById('private').style.left = "459px";
+                    document.getElementById('private').style.width = "232px";
+                    document.getElementById('private').style.fontSize = "150%";
+                    document.getElementById('private').style.transform = "rotate(0deg)";
+                    document.getElementById('private').style.msTransform = "rotate(0deg)";
+                    document.getElementById('private').style.webkitTransform = "rotate(0deg)";
+                    document.getElementById('walletlabel').style.display = "block";
+                    document.getElementById('encryptedprivatelabel').style.display = "block";
+                    document.getElementById('publiclabel').style.display = "block";
                 }
                 if (themename == "Original White") {
                     document.getElementById('front').setAttribute("src", "originalwhite.jpg");
+                    var elements = document.getElementsByClassName("cback");
+                    for (var i = 0; i < elements.length; i++) {
+                        elements[i].setAttribute("src", "back.jpg");
+                    }
+                    elements = document.getElementsByClassName("cqrcode_pwbackup");
+                    for (var i = 0; i < elements.length; i++) {
+                        elements[i].style.top = "130px";
+                        elements[i].style.left = "73px";
+                        elements[i].style.height = "200px";
+                        elements[i].style.width = "200px";
+                    }
+                    elements = document.getElementsByClassName("cpwbackup");
+                    for (var i = 0; i < elements.length; i++) {
+                        elements[i].style.top = "55px";
+                        elements[i].style.left = "20px";
+                        elements[i].style.width = "315px";
+                        elements[i].style.color = "#FFFFFF";
+                        elements[i].style.fontsize = "100%";
+                    }
+                    elements = document.getElementsByClassName("cpwbackuplabel");
+                    for (var i = 0; i < elements.length; i++) {
+                        elements[i].style.display = "block";
+                        elements[i].style.top = "25px";
+                        elements[i].style.left = "116px";
+                        elements[i].style.color = "#a90000";
+                        elements[i].style.fontsize = "140%";
+                    }
+                    document.getElementById('qrcode_public').style.top = "112px";
+                    document.getElementById('qrcode_public').style.left = "43px";
+                    document.getElementById('qrcode_public').style.height = "160px";
+                    document.getElementById('qrcode_public').style.width = "160px";
+                    document.getElementById('qrcode_private').style.top = "112px";
+                    document.getElementById('qrcode_private').style.left = "490px";
+                    document.getElementById('qrcode_private').style.height = "160px";
+                    document.getElementById('qrcode_private').style.width = "160px";
+                    document.getElementById('public').style.top = "304px";
+                    document.getElementById('public').style.left = "20px";
+                    document.getElementById('public').style.width = "215px";
+                    document.getElementById('public').style.fontSize = "160%";
+                    document.getElementById('private').style.top = "295px";
+                    document.getElementById('private').style.left = "459px";
+                    document.getElementById('private').style.width = "232px";
+                    document.getElementById('private').style.fontSize = "150%";
+                    document.getElementById('private').style.transform = "rotate(0deg)";
+                    document.getElementById('private').style.msTransform = "rotate(0deg)";
+                    document.getElementById('private').style.webkitTransform = "rotate(0deg)";
+                    document.getElementById('walletlabel').style.display = "block";
+                    document.getElementById('encryptedprivatelabel').style.display = "block";
+                    document.getElementById('publiclabel').style.display = "block";
                 }
                 if (themename == "Light Swirl") {
                     document.getElementById('front').setAttribute("src", "lightswirl.jpg");
+                    var elements = document.getElementsByClassName("cback");
+                    for (var i = 0; i < elements.length; i++) {
+                        elements[i].setAttribute("src", "back.jpg");
+                    }
+                    elements = document.getElementsByClassName("cqrcode_pwbackup");
+                    for (var i = 0; i < elements.length; i++) {
+                        elements[i].style.top = "130px";
+                        elements[i].style.left = "73px";
+                        elements[i].style.height = "200px";
+                        elements[i].style.width = "200px";
+                    }
+                    elements = document.getElementsByClassName("cpwbackup");
+                    for (var i = 0; i < elements.length; i++) {
+                        elements[i].style.top = "55px";
+                        elements[i].style.left = "20px";
+                        elements[i].style.width = "315px";
+                        elements[i].style.color = "#FFFFFF";
+                        elements[i].style.fontsize = "100%";
+                    }
+                    elements = document.getElementsByClassName("cpwbackuplabel");
+                    for (var i = 0; i < elements.length; i++) {
+                        elements[i].style.display = "block";
+                        elements[i].style.top = "25px";
+                        elements[i].style.left = "116px";
+                        elements[i].style.color = "#a90000";
+                        elements[i].style.fontsize = "140%";
+                    }
+                    document.getElementById('qrcode_public').style.top = "112px";
+                    document.getElementById('qrcode_public').style.left = "43px";
+                    document.getElementById('qrcode_public').style.height = "160px";
+                    document.getElementById('qrcode_public').style.width = "160px";
+                    document.getElementById('qrcode_private').style.top = "112px";
+                    document.getElementById('qrcode_private').style.left = "490px";
+                    document.getElementById('qrcode_private').style.height = "160px";
+                    document.getElementById('qrcode_private').style.width = "160px";
+                    document.getElementById('public').style.top = "304px";
+                    document.getElementById('public').style.left = "20px";
+                    document.getElementById('public').style.width = "215px";
+                    document.getElementById('public').style.fontSize = "160%";
+                    document.getElementById('private').style.top = "295px";
+                    document.getElementById('private').style.left = "459px";
+                    document.getElementById('private').style.width = "232px";
+                    document.getElementById('private').style.fontSize = "150%";
+                    document.getElementById('private').style.transform = "rotate(0deg)";
+                    document.getElementById('private').style.msTransform = "rotate(0deg)";
+                    document.getElementById('private').style.webkitTransform = "rotate(0deg)";
+                    document.getElementById('walletlabel').style.display = "block";
+                    document.getElementById('encryptedprivatelabel').style.display = "block";
+                    document.getElementById('publiclabel').style.display = "block";
                 }
                 if (themename == "Dark Swirl") {
                     document.getElementById('front').setAttribute("src", "darkswirl.jpg");
+                    var elements = document.getElementsByClassName("cback");
+                    for (var i = 0; i < elements.length; i++) {
+                        elements[i].setAttribute("src", "back.jpg");
+                    }
+                    elements = document.getElementsByClassName("cqrcode_pwbackup");
+                    for (var i = 0; i < elements.length; i++) {
+                        elements[i].style.top = "130px";
+                        elements[i].style.left = "73px";
+                        elements[i].style.height = "200px";
+                        elements[i].style.width = "200px";
+                    }
+                    elements = document.getElementsByClassName("cpwbackup");
+                    for (var i = 0; i < elements.length; i++) {
+                        elements[i].style.top = "55px";
+                        elements[i].style.left = "20px";
+                        elements[i].style.width = "315px";
+                        elements[i].style.color = "#FFFFFF";
+                        elements[i].style.fontsize = "100%";
+                    }
+                    elements = document.getElementsByClassName("cpwbackuplabel");
+                    for (var i = 0; i < elements.length; i++) {
+                        elements[i].style.display = "block";
+                        elements[i].style.top = "25px";
+                        elements[i].style.left = "116px";
+                        elements[i].style.color = "#a90000";
+                        elements[i].style.fontsize = "140%";
+                    }
+                    document.getElementById('qrcode_public').style.top = "112px";
+                    document.getElementById('qrcode_public').style.left = "43px";
+                    document.getElementById('qrcode_public').style.height = "160px";
+                    document.getElementById('qrcode_public').style.width = "160px";
+                    document.getElementById('qrcode_private').style.top = "112px";
+                    document.getElementById('qrcode_private').style.left = "490px";
+                    document.getElementById('qrcode_private').style.height = "160px";
+                    document.getElementById('qrcode_private').style.width = "160px";
+                    document.getElementById('public').style.top = "304px";
+                    document.getElementById('public').style.left = "20px";
+                    document.getElementById('public').style.width = "215px";
+                    document.getElementById('public').style.fontSize = "160%";
+                    document.getElementById('private').style.top = "295px";
+                    document.getElementById('private').style.left = "459px";
+                    document.getElementById('private').style.width = "232px";
+                    document.getElementById('private').style.fontSize = "150%";
+                    document.getElementById('private').style.transform = "rotate(0deg)";
+                    document.getElementById('private').style.msTransform = "rotate(0deg)";
+                    document.getElementById('private').style.webkitTransform = "rotate(0deg)";
+                    document.getElementById('walletlabel').style.display = "block";
+                    document.getElementById('encryptedprivatelabel').style.display = "block";
+                    document.getElementById('publiclabel').style.display = "block";
                 }
             }
         }
@@ -7935,19 +8131,23 @@ ninja.foreachSerialized = function (collection, whatToDo, onComplete) {
                         var backimg = document.createElement("img");
                         backimg.setAttribute("src", "back.jpg");
                         backimg.setAttribute("id", "back");
+                        backimg.setAttribute("class", "cback");
                         divpwbackup.appendChild(backimg);
 
                         var div = document.createElement("div");
                         div.setAttribute("id", "pwbackuplabel");
+                        div.setAttribute("class", "cpwbackuplabel");
                         div.innerHTML = "Shared Secret";
                         divpwbackup.appendChild(div);
 
                         var pwbackupcanvas = ninja.qrCode.createCanvas(shares[i], 1);
                         pwbackupcanvas.setAttribute("id", "qrcode_pwbackup")
+                        pwbackupcanvas.setAttribute("class", "cqrcode_pwbackup");
                         divpwbackup.appendChild(pwbackupcanvas);
 
                         var div = document.createElement("div");
                         div.setAttribute("id", "pwbackup");
+                        div.setAttribute("class", "cpwbackup");
                         div.innerHTML = shares[i];
                         divpwbackup.appendChild(div);
 
