@@ -7001,7 +7001,7 @@ Bitcoin.Util = {
         <!-- end content -->
         <!-- begin footer -->
         <footer id="myfooter">
-            <p>Created by <a href="http://jeffhockema.com">Jeff Hockema</a> - <a href="https://github.com/iceburn2003/encryptedbitcoinwallet.com">v1.3</a></p>
+            <p>Created by <a href="http://jeffhockema.com">Jeff Hockema</a> - <a href="https://github.com/iceburn2003/encryptedbitcoinwallet.com">v1.3.1</a></p>
         </footer>
         <!-- end footer -->
 
@@ -7054,18 +7054,18 @@ ninja.privateKey = {
 		try {
 			hex = Bitcoin.Base58.decode(base58Encrypted);
 		} catch (e) {
-			callback(new Error(ninja.translator.get("detailalertnotvalidprivatekey")));
+		    callback(new Error(ninja.translator.get("The private key is invalid.")));
 			return;
 		}
 
 		// 43 bytes: 2 bytes prefix, 37 bytes payload, 4 bytes checksum
 		if (hex.length != 43) {
-			callback(new Error(ninja.translator.get("detailalertnotvalidprivatekey")));
+		    callback(new Error(ninja.translator.get("The private key is invalid.")));
 			return;
 		}
 		// first byte is always 0x01
 		else if (hex[0] != 0x01) {
-			callback(new Error(ninja.translator.get("detailalertnotvalidprivatekey")));
+		    callback(new Error(ninja.translator.get("The private key is invalid.")));
 			return;
 		}
 
@@ -7073,7 +7073,7 @@ ninja.privateKey = {
 		hex = hex.slice(0, -4);
 		var checksum = Bitcoin.Util.dsha256(hex);
 		if (checksum[0] != expChecksum[0] || checksum[1] != expChecksum[1] || checksum[2] != expChecksum[2] || checksum[3] != expChecksum[3]) {
-			callback(new Error(ninja.translator.get("detailalertnotvalidprivatekey")));
+		    callback(new Error(ninja.translator.get("The private key is invalid.")));
 			return;
 		}
 
@@ -7088,7 +7088,7 @@ ninja.privateKey = {
 			}
 			// key should NOT use compression
 			else if (hex[2] != 0xc0) {
-				callback(new Error(ninja.translator.get("detailalertnotvalidprivatekey")));
+			    callback(new Error(ninja.translator.get("The private key is invalid.")));
 				return;
 			}
 		}
@@ -7098,12 +7098,12 @@ ninja.privateKey = {
 			isCompPoint = (hex[2] & 0x20) != 0;
 			hasLotSeq = (hex[2] & 0x04) != 0;
 			if ((hex[2] & 0x24) != hex[2]) {
-				callback(new Error(ninja.translator.get("detailalertnotvalidprivatekey")));
+				callback(new Error(ninja.translator.get("The private key is invalid.")));
 				return;
 			}
 		}
 		else {
-			callback(new Error(ninja.translator.get("detailalertnotvalidprivatekey")));
+		    callback(new Error(ninja.translator.get("The private key is invalid.")));
 			return;
 		}
 
@@ -7116,7 +7116,7 @@ ninja.privateKey = {
 			checksum = Bitcoin.Util.dsha256(base58AddrText); // checksum using closure
 
 			if (checksum[0] != hex[3] || checksum[1] != hex[4] || checksum[2] != hex[5] || checksum[3] != hex[6]) {
-				callback(new Error(ninja.translator.get("bip38alertincorrectpassphrase"))); // callback using closure
+				callback(new Error(ninja.translator.get("Invalid passphrase."))); // callback using closure
 				return;
 			}
 			callback(tmpkey.getBitcoinPrivateKeyByteArray()); // callback using closure
@@ -8022,22 +8022,22 @@ ninja.foreachSerialized = function (collection, whatToDo, onComplete) {
                         return;
                     }
                     if (parseInt(document.getElementById('backupshares').value) < 2) {
-                        alert("A minimum of 2 shares must be created for distributed password backup.");
+                        alert("A minimum of 2 shares must be created for distributed passphrase backup.");
                         document.getElementById('backupshares').value = 2;
                         return;
                     }
                     if (parseInt(document.getElementById('backupsharesrequired').value) < 2) {
-                        alert("A minimum of 2 shares are required to recover a password.");
+                        alert("A minimum of 2 shares are required to recover a passphrase.");
                         document.getElementById('backupsharesrequired').value = 2;
                         return;
                     }
                     if (parseInt(document.getElementById('backupshares').value) > 25) {
-                        alert("No more than 25 shares can be created for distributed password backup.");
+                        alert("No more than 25 shares can be created for distributed passphrase backup.");
                         document.getElementById('backupshares').value = 25;
                         return;
                     }
                     if (parseInt(document.getElementById('backupshares').value) < parseInt(document.getElementById('backupsharesrequired').value)) {
-                        alert("You are requiring more than the total number of shares to recover the password.");
+                        alert("You are requiring more than the total number of shares to recover the passphrase.");
                         document.getElementById('backupsharesrequired').value = document.getElementById('backupshares').value;
                         return;
                     }
@@ -8182,7 +8182,7 @@ ninja.foreachSerialized = function (collection, whatToDo, onComplete) {
                 if (ninja.privateKey.isBIP38Format(key)) {
                     var passphrase = document.getElementById("decryptpassphrase").value.toString();
                     if (passphrase == "") {
-                        alert("bip38alertpassphraserequired");
+                        alert("A passphrase is required.");
                         return;
                     }
                     document.getElementById("busyblock").className = "busy";
