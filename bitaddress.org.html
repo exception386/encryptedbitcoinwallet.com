@@ -7724,6 +7724,9 @@ ninja.foreachSerialized = function (collection, whatToDo, onComplete) {
             change: function (themename) {
                 if (themename == "Original Orange") {
                     document.getElementById('front').setAttribute("src", "originalorange.jpg");
+                    document.getElementById('front').style.width = "704px";
+                    document.getElementById('front').style.height = "396px";
+
                     var elements = document.getElementsByClassName("cback");
                     for (var i = 0; i < elements.length; i++) {
                         elements[i].setAttribute("src", "back.jpg");
@@ -7776,6 +7779,9 @@ ninja.foreachSerialized = function (collection, whatToDo, onComplete) {
                 }
                 if (themename == "Original White") {
                     document.getElementById('front').setAttribute("src", "originalwhite.jpg");
+                    document.getElementById('front').style.width = "704px";
+                    document.getElementById('front').style.height = "396px";
+
                     var elements = document.getElementsByClassName("cback");
                     for (var i = 0; i < elements.length; i++) {
                         elements[i].setAttribute("src", "back.jpg");
@@ -7828,6 +7834,9 @@ ninja.foreachSerialized = function (collection, whatToDo, onComplete) {
                 }
                 if (themename == "Light Swirl") {
                     document.getElementById('front').setAttribute("src", "lightswirl.jpg");
+                    document.getElementById('front').style.width = "704px";
+                    document.getElementById('front').style.height = "396px";
+
                     var elements = document.getElementsByClassName("cback");
                     for (var i = 0; i < elements.length; i++) {
                         elements[i].setAttribute("src", "back.jpg");
@@ -7880,6 +7889,9 @@ ninja.foreachSerialized = function (collection, whatToDo, onComplete) {
                 }
                 if (themename == "Dark Swirl") {
                     document.getElementById('front').setAttribute("src", "darkswirl.jpg");
+                    document.getElementById('front').style.width = "704px";
+                    document.getElementById('front').style.height = "396px";
+
                     var elements = document.getElementsByClassName("cback");
                     for (var i = 0; i < elements.length; i++) {
                         elements[i].setAttribute("src", "back.jpg");
@@ -7929,6 +7941,171 @@ ninja.foreachSerialized = function (collection, whatToDo, onComplete) {
                     document.getElementById('walletlabel').style.display = "block";
                     document.getElementById('encryptedprivatelabel').style.display = "block";
                     document.getElementById('publiclabel').style.display = "block";
+                }
+                if (themename == "Wide Blue") {
+                    document.getElementById('front').setAttribute("src", "wideblue.jpg");
+                    document.getElementById('front').style.width = "704px";
+                    document.getElementById('front').style.height = "300px";
+
+                    var elements = document.getElementsByClassName("cback");
+                    for (var i = 0; i < elements.length; i++) {
+                        elements[i].setAttribute("src", "back.jpg");
+                    }
+                    elements = document.getElementsByClassName("cqrcode_pwbackup");
+                    for (var i = 0; i < elements.length; i++) {
+                        elements[i].style.top = "130px";
+                        elements[i].style.left = "73px";
+                        elements[i].style.height = "200px";
+                        elements[i].style.width = "200px";
+                    }
+                    elements = document.getElementsByClassName("cpwbackup");
+                    for (var i = 0; i < elements.length; i++) {
+                        elements[i].style.top = "55px";
+                        elements[i].style.left = "20px";
+                        elements[i].style.width = "315px";
+                        elements[i].style.color = "#FFFFFF";
+                        elements[i].style.fontsize = "100%";
+                    }
+                    elements = document.getElementsByClassName("cpwbackuplabel");
+                    for (var i = 0; i < elements.length; i++) {
+                        elements[i].style.display = "block";
+                        elements[i].style.top = "25px";
+                        elements[i].style.left = "116px";
+                        elements[i].style.color = "#a90000";
+                        elements[i].style.fontsize = "140%";
+                    }
+                    document.getElementById('qrcode_public').style.top = "180px";
+                    document.getElementById('qrcode_public').style.left = "14px";
+                    document.getElementById('qrcode_public').style.height = "97px";
+                    document.getElementById('qrcode_public').style.width = "97px";
+                    document.getElementById('qrcode_private').style.top = "16px";
+                    document.getElementById('qrcode_private').style.left = "583px";
+                    document.getElementById('qrcode_private').style.height = "97px";
+                    document.getElementById('qrcode_private').style.width = "97px";
+                    document.getElementById('public').style.top = "270px";
+                    document.getElementById('public').style.left = "79px";
+                    document.getElementById('public').style.width = "415px";
+                    document.getElementById('public').style.fontSize = "120%";
+                    document.getElementById('private').style.top = "18px";
+                    document.getElementById('private').style.left = "447px";
+                    document.getElementById('private').style.width = "122px";
+                    document.getElementById('private').style.fontSize = "110%";
+                    document.getElementById('private').style.transform = "rotate(0deg)";
+                    document.getElementById('private').style.msTransform = "rotate(0deg)";
+                    document.getElementById('private').style.webkitTransform = "rotate(0deg)";
+                    document.getElementById('walletlabel').style.display = "none";
+                    document.getElementById('encryptedprivatelabel').style.display = "none";
+                    document.getElementById('publiclabel').style.display = "none";
+                }
+                if (themename == "Wide Orange") {
+                    document.getElementById('front').setAttribute("src", "wideorange.jpg");
+                    document.getElementById('front').style.width = "704px";
+                    document.getElementById('front').style.height = "300px";
+
+                    var elements = document.getElementsByClassName("cback");
+                    for (var i = 0; i < elements.length; i++) {
+                        elements[i].setAttribute("src", "back.jpg");
+                    }
+                    elements = document.getElementsByClassName("cqrcode_pwbackup");
+                    for (var i = 0; i < elements.length; i++) {
+                        elements[i].style.top = "130px";
+                        elements[i].style.left = "73px";
+                        elements[i].style.height = "200px";
+                        elements[i].style.width = "200px";
+                    }
+                    elements = document.getElementsByClassName("cpwbackup");
+                    for (var i = 0; i < elements.length; i++) {
+                        elements[i].style.top = "55px";
+                        elements[i].style.left = "20px";
+                        elements[i].style.width = "315px";
+                        elements[i].style.color = "#FFFFFF";
+                        elements[i].style.fontsize = "100%";
+                    }
+                    elements = document.getElementsByClassName("cpwbackuplabel");
+                    for (var i = 0; i < elements.length; i++) {
+                        elements[i].style.display = "block";
+                        elements[i].style.top = "25px";
+                        elements[i].style.left = "116px";
+                        elements[i].style.color = "#a90000";
+                        elements[i].style.fontsize = "140%";
+                    }
+                    document.getElementById('qrcode_public').style.top = "180px";
+                    document.getElementById('qrcode_public').style.left = "14px";
+                    document.getElementById('qrcode_public').style.height = "97px";
+                    document.getElementById('qrcode_public').style.width = "97px";
+                    document.getElementById('qrcode_private').style.top = "16px";
+                    document.getElementById('qrcode_private').style.left = "583px";
+                    document.getElementById('qrcode_private').style.height = "97px";
+                    document.getElementById('qrcode_private').style.width = "97px";
+                    document.getElementById('public').style.top = "270px";
+                    document.getElementById('public').style.left = "79px";
+                    document.getElementById('public').style.width = "415px";
+                    document.getElementById('public').style.fontSize = "120%";
+                    document.getElementById('private').style.top = "18px";
+                    document.getElementById('private').style.left = "447px";
+                    document.getElementById('private').style.width = "122px";
+                    document.getElementById('private').style.fontSize = "110%";
+                    document.getElementById('private').style.transform = "rotate(0deg)";
+                    document.getElementById('private').style.msTransform = "rotate(0deg)";
+                    document.getElementById('private').style.webkitTransform = "rotate(0deg)";
+                    document.getElementById('walletlabel').style.display = "none";
+                    document.getElementById('encryptedprivatelabel').style.display = "none";
+                    document.getElementById('publiclabel').style.display = "none";
+                }
+                if (themename == "Wide Teal") {
+                    document.getElementById('front').setAttribute("src", "wideteal.jpg");
+                    document.getElementById('front').style.width = "704px";
+                    document.getElementById('front').style.height = "300px";
+
+                    var elements = document.getElementsByClassName("cback");
+                    for (var i = 0; i < elements.length; i++) {
+                        elements[i].setAttribute("src", "back.jpg");
+                    }
+                    elements = document.getElementsByClassName("cqrcode_pwbackup");
+                    for (var i = 0; i < elements.length; i++) {
+                        elements[i].style.top = "130px";
+                        elements[i].style.left = "73px";
+                        elements[i].style.height = "200px";
+                        elements[i].style.width = "200px";
+                    }
+                    elements = document.getElementsByClassName("cpwbackup");
+                    for (var i = 0; i < elements.length; i++) {
+                        elements[i].style.top = "55px";
+                        elements[i].style.left = "20px";
+                        elements[i].style.width = "315px";
+                        elements[i].style.color = "#FFFFFF";
+                        elements[i].style.fontsize = "100%";
+                    }
+                    elements = document.getElementsByClassName("cpwbackuplabel");
+                    for (var i = 0; i < elements.length; i++) {
+                        elements[i].style.display = "block";
+                        elements[i].style.top = "25px";
+                        elements[i].style.left = "116px";
+                        elements[i].style.color = "#a90000";
+                        elements[i].style.fontsize = "140%";
+                    }
+                    document.getElementById('qrcode_public').style.top = "180px";
+                    document.getElementById('qrcode_public').style.left = "14px";
+                    document.getElementById('qrcode_public').style.height = "97px";
+                    document.getElementById('qrcode_public').style.width = "97px";
+                    document.getElementById('qrcode_private').style.top = "16px";
+                    document.getElementById('qrcode_private').style.left = "583px";
+                    document.getElementById('qrcode_private').style.height = "97px";
+                    document.getElementById('qrcode_private').style.width = "97px";
+                    document.getElementById('public').style.top = "270px";
+                    document.getElementById('public').style.left = "79px";
+                    document.getElementById('public').style.width = "415px";
+                    document.getElementById('public').style.fontSize = "120%";
+                    document.getElementById('private').style.top = "18px";
+                    document.getElementById('private').style.left = "447px";
+                    document.getElementById('private').style.width = "122px";
+                    document.getElementById('private').style.fontSize = "110%";
+                    document.getElementById('private').style.transform = "rotate(0deg)";
+                    document.getElementById('private').style.msTransform = "rotate(0deg)";
+                    document.getElementById('private').style.webkitTransform = "rotate(0deg)";
+                    document.getElementById('walletlabel').style.display = "none";
+                    document.getElementById('encryptedprivatelabel').style.display = "none";
+                    document.getElementById('publiclabel').style.display = "none";
                 }
             }
         }
@@ -8069,7 +8246,7 @@ ninja.foreachSerialized = function (collection, whatToDo, onComplete) {
                 var div = document.createElement("div");
                 div.setAttribute("id", "printcontrols");
                 div.innerHTML = "<input class='submit' style='margin: 0 0 20px 0;' type='button' value='Print Wallet' onclick='window.print();' /><br />";
-                div.innerHTML += "Choose Theme:<br /><select name='theme' onchange='ninja.wallets.theme.change(this.options[this.selectedIndex].value)'><option value='Original Orange' selected>Orignal Orange</option><option value='Original White'>Original White</option><option value='Light Swirl'>Light Swirl</option><option value='Dark Swirl'>Dark Swirl</option></select><br /><br />";
+                div.innerHTML += "Choose Theme:<br /><select name='theme' onchange='ninja.wallets.theme.change(this.options[this.selectedIndex].value)'><option value='Original Orange' selected>Orignal Orange</option><option value='Original White'>Original White</option><option value='Light Swirl'>Light Swirl</option><option value='Dark Swirl'>Dark Swirl</option><option value='Wide Blue'>Wide Blue</option><option value='Wide Orange'>Wide Orange</option><option value='Wide Teal'>Wide Teal</option></select><br /><br />";
                 
                 document.getElementById("sharedkeyarea").appendChild(div);
 
