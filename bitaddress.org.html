@@ -6436,7 +6436,6 @@ Bitcoin.Util = {
             border: 0;
             margin: 0;
             padding: 0;
-            left: 0;
         }
 
         #back {
@@ -6445,7 +6444,6 @@ Bitcoin.Util = {
             border: 0;
             margin: 0;
             padding: 0;
-            left: 0;
         }
 
         #logo {
@@ -6469,14 +6467,10 @@ Bitcoin.Util = {
         }
 
         #results {
-            width: 704px;
             overflow: hidden;
             margin: 24px auto 0 auto;
             text-align: justify;
             padding: 20px 25px 0px 25px;
-            border-radius: 7px 7px 7px 7px;
-            -moz-border-radius: 7px 7px 7px 7px;
-            -webkit-border: 7px 7px 7px 7px;
         }
 
         #main_content {
@@ -6689,7 +6683,11 @@ Bitcoin.Util = {
             background: #282828;
             color: #BBB;
         }
-
+		
+		body, html {
+		min-height: 99%;
+		}
+		
         a, a:hover {
             color: #C5E105;
         }
@@ -6718,6 +6716,7 @@ Bitcoin.Util = {
 
         #paperwallet {
             position: relative;
+            text-align: left;
         }
 
         #papersvg {
@@ -6742,8 +6741,6 @@ Bitcoin.Util = {
         }
 
         #qrcode_public {
-            top: 112px;
-            left: 43px;
             z-index: 100;
             margin: 0;
             float: none;
@@ -6754,8 +6751,6 @@ Bitcoin.Util = {
         }
 
         #qrcode_private {
-            top: 112px;
-            left: 490px;
             z-index: 100;
             margin: 0;
             float: none;
@@ -6812,8 +6807,6 @@ Bitcoin.Util = {
 
         #walletlabel {
             position: absolute;
-            top: 25px;
-            left: 25px;
             z-index: 100;
             background-color: transparent;
             font-weight: bold;
@@ -6821,9 +6814,6 @@ Bitcoin.Util = {
             margin: 0;
             font: 200% "Lucida Console", "Lucida Sans Typewriter", monospace, arial, sans-serif;
         }
-
-
-
 
         #pwbackuplabel {
             position: absolute;
@@ -6841,8 +6831,6 @@ Bitcoin.Util = {
 
         #privatelabel {
             position: absolute;
-            top: 85px;
-            left: 531px;
             z-index: 100;
             background-color: transparent;
             font-weight: bold;
@@ -6852,8 +6840,6 @@ Bitcoin.Util = {
 
         #encryptedprivatelabel {
             position: absolute;
-            top: 85px;
-            left: 492px;
             z-index: 100;
             background-color: transparent;
             font-weight: bold;
@@ -6863,8 +6849,6 @@ Bitcoin.Util = {
 
         #publiclabel {
             position: absolute;
-            top: 85px;
-            left: 71px;
             z-index: 100;
             background-color: transparent;
             font-weight: bold;
@@ -6939,8 +6923,8 @@ Bitcoin.Util = {
                 If you have an existing Bitcoin address that you would like to create a BIP38 encrypted wallet from, you can enter the existing private key and new passphrase <a href="javascript:void(0)" onclick="ninja.wallets.menu.opengenerateexisting();">here</a>. This is not recommended. You are encouraged to use the <a href="javascript:void(0)" onclick="    ninja.wallets.menu.opengenerate();">default option</a> which generates a new address with a private key that is not revealed until it is decrypted.<br /><br />
                 <br />
                 <h1>Credits</h1>
-                Encrytped Bitcoin Wallet was created by <a href="http://jeffhockema.com">Jeff Hockema</a>. The project is open source and <a href="https://github.com/iceburn2003/encryptedbitcoinwallet.com">available on GitHub</a> as a fork of <a href="http://bitaddress.org">bitaddress.org</a> with a unique feature set and integration with <a href="https://github.com/amper5and/secrets.js/">secrets.js</a> for distributed passphrase backups.<br /><br />
-                Wallet backgrounds by <a href="https://secure.flickr.com/photos/jason_benjamin/">PerfectHUE</a>. Distributed Passphrase Backup background by <a href="http://en.reddit.com/r/Bitcoin/comments/1a03gu/as_a_3d_artist_this_is_my_take_on_the_bitcoin/">nagdude</a>.
+                Encrytped Bitcoin Wallet was created by <a href="http://jeffhockema.com">Jeff Hockema</a>. The project is open source and <a href="https://github.com/exception386/encryptedbitcoinwallet.com">available on GitHub</a> as a fork of <a href="http://bitaddress.org">bitaddress.org</a> with a unique feature set and integration with <a href="https://github.com/amper5and/secrets.js/">secrets.js</a> for distributed passphrase backups.<br /><br />
+                Wallet backgrounds by <a href="https://secure.flickr.com/photos/jason_benjamin/">PerfectHUE</a> and <a href="http://www.reddit.com/user/CoinCult">CoinCult</a>. Bitcoin Bills by <a href="http://adamkochanowicz.com">Adam Kochanowicz</a>. Distributed Passphrase Backup background by <a href="http://en.reddit.com/r/Bitcoin/comments/1a03gu/as_a_3d_artist_this_is_my_take_on_the_bitcoin/">nagdude</a>.
             </div>
             <div id="main_content">
                 <div id="busyblock"></div>
@@ -7001,7 +6985,7 @@ Bitcoin.Util = {
         <!-- end content -->
         <!-- begin footer -->
         <footer id="myfooter">
-            <p>Created by <a href="http://jeffhockema.com">Jeff Hockema</a> - <a href="https://github.com/iceburn2003/encryptedbitcoinwallet.com">v1.3.2</a></p>
+            <p>Created by <a href="http://jeffhockema.com">Jeff Hockema</a> - <a href="https://github.com/exception386/encryptedbitcoinwallet.com">v1.4.1</a></p>
         </footer>
         <!-- end footer -->
 
@@ -7720,16 +7704,52 @@ ninja.foreachSerialized = function (collection, whatToDo, onComplete) {
         }
     </script>
     <script type="text/javascript">
+        ninja.wallets.subtheme = {
+            change: function (frontimg) {
+                document.getElementById('front').setAttribute("src", frontimg);
+            }
+        }
+
         ninja.wallets.theme = {
             change: function (themename) {
-                if (themename == "Original Orange") {
-                    document.getElementById('front').setAttribute("src", "originalorange.jpg");
+                if (themename == "Constellation") {
+                    document.getElementById('subtheme').options.length = 0;
+                    var opt = document.createElement('option');
+                    opt.value = "images/constellationoriginal.jpg";
+                    opt.innerHTML = "Original";
+                    document.getElementById('subtheme').appendChild(opt);
+                    var opt1 = document.createElement('option');
+                    opt1.value = "images/constellationred.jpg";
+                    opt1.innerHTML = "Red";
+                    document.getElementById('subtheme').appendChild(opt1);
+                    var opt2 = document.createElement('option');
+                    opt2.value = "images/constellationorange.jpg";
+                    opt2.innerHTML = "Orange";
+                    document.getElementById('subtheme').appendChild(opt2);
+                    var opt3 = document.createElement('option');
+                    opt3.value = "images/constellationyellow.jpg";
+                    opt3.innerHTML = "Yellow";
+                    document.getElementById('subtheme').appendChild(opt3);
+                    var opt4 = document.createElement('option');
+                    opt4.value = "images/constellationgreen.jpg";
+                    opt4.innerHTML = "Green";
+                    document.getElementById('subtheme').appendChild(opt4);
+                    var opt5 = document.createElement('option');
+                    opt5.value = "images/constellationblue.jpg";
+                    opt5.innerHTML = "Blue";
+                    document.getElementById('subtheme').appendChild(opt5);
+                    var opt6 = document.createElement('option');
+                    opt6.value = "images/constellationpurple.jpg";
+                    opt6.innerHTML = "Purple";
+                    document.getElementById('subtheme').appendChild(opt6);
+
+                    document.getElementById('front').setAttribute("src", "images/constellationoriginal.jpg");
                     document.getElementById('front').style.width = "704px";
                     document.getElementById('front').style.height = "396px";
 
                     var elements = document.getElementsByClassName("cback");
                     for (var i = 0; i < elements.length; i++) {
-                        elements[i].setAttribute("src", "back.jpg");
+                        elements[i].setAttribute("src", "images/sharedsecret.jpg");
                     }
                     elements = document.getElementsByClassName("cqrcode_pwbackup");
                     for (var i = 0; i < elements.length; i++) {
@@ -7748,12 +7768,14 @@ ninja.foreachSerialized = function (collection, whatToDo, onComplete) {
                     }
                     elements = document.getElementsByClassName("cpwbackuplabel");
                     for (var i = 0; i < elements.length; i++) {
+                        elements[i].innerHTML = "Shared Secret";
                         elements[i].style.display = "block";
                         elements[i].style.top = "25px";
                         elements[i].style.left = "116px";
                         elements[i].style.color = "#a90000";
                         elements[i].style.fontsize = "140%";
                     }
+                    document.getElementById('results').style.width = "704px";
                     document.getElementById('qrcode_public').style.top = "112px";
                     document.getElementById('qrcode_public').style.left = "43px";
                     document.getElementById('qrcode_public').style.height = "160px";
@@ -7773,18 +7795,57 @@ ninja.foreachSerialized = function (collection, whatToDo, onComplete) {
                     document.getElementById('private').style.transform = "rotate(0deg)";
                     document.getElementById('private').style.msTransform = "rotate(0deg)";
                     document.getElementById('private').style.webkitTransform = "rotate(0deg)";
+                    document.getElementById('walletlabel').innerHTML = "BIP38 Encrypted Bitcoin Wallet";
+                    document.getElementById('walletlabel').style.top = "29px";
+                    document.getElementById('walletlabel').style.left = "115px";
                     document.getElementById('walletlabel').style.display = "block";
+                    document.getElementById('encryptedprivatelabel').innerHTML = "ENCRYPTED PRIVATE KEY";
+                    document.getElementById('encryptedprivatelabel').style.top = "85px";
+                    document.getElementById('encryptedprivatelabel').style.left = "492px";
                     document.getElementById('encryptedprivatelabel').style.display = "block";
+                    document.getElementById('publiclabel').innerHTML = "PUBLIC ADDRESS";
+                    document.getElementById('publiclabel').style.top = "85px";
+                    document.getElementById('publiclabel').style.left = "71px";
                     document.getElementById('publiclabel').style.display = "block";
                 }
-                if (themename == "Original White") {
-                    document.getElementById('front').setAttribute("src", "originalwhite.jpg");
+                if (themename == "Swirl") {
+                    document.getElementById('subtheme').options.length = 0;
+                    var opt = document.createElement('option');
+                    opt.value = "images/swirloriginal.jpg";
+                    opt.innerHTML = "Original";
+                    document.getElementById('subtheme').appendChild(opt);
+                    var opt1 = document.createElement('option');
+                    opt1.value = "images/swirlred.jpg";
+                    opt1.innerHTML = "Red";
+                    document.getElementById('subtheme').appendChild(opt1);
+                    var opt2 = document.createElement('option');
+                    opt2.value = "images/swirlorange.jpg";
+                    opt2.innerHTML = "Orange";
+                    document.getElementById('subtheme').appendChild(opt2);
+                    var opt3 = document.createElement('option');
+                    opt3.value = "images/swirlyellow.jpg";
+                    opt3.innerHTML = "Yellow";
+                    document.getElementById('subtheme').appendChild(opt3);
+                    var opt4 = document.createElement('option');
+                    opt4.value = "images/swirlgreen.jpg";
+                    opt4.innerHTML = "Green";
+                    document.getElementById('subtheme').appendChild(opt4);
+                    var opt5 = document.createElement('option');
+                    opt5.value = "images/swirlblue.jpg";
+                    opt5.innerHTML = "Blue";
+                    document.getElementById('subtheme').appendChild(opt5);
+                    var opt6 = document.createElement('option');
+                    opt6.value = "images/swirlpurple.jpg";
+                    opt6.innerHTML = "Purple";
+                    document.getElementById('subtheme').appendChild(opt6);
+
+                    document.getElementById('front').setAttribute("src", "images/swirloriginal.jpg");
                     document.getElementById('front').style.width = "704px";
                     document.getElementById('front').style.height = "396px";
 
                     var elements = document.getElementsByClassName("cback");
                     for (var i = 0; i < elements.length; i++) {
-                        elements[i].setAttribute("src", "back.jpg");
+                        elements[i].setAttribute("src", "images/sharedsecret.jpg");
                     }
                     elements = document.getElementsByClassName("cqrcode_pwbackup");
                     for (var i = 0; i < elements.length; i++) {
@@ -7803,12 +7864,14 @@ ninja.foreachSerialized = function (collection, whatToDo, onComplete) {
                     }
                     elements = document.getElementsByClassName("cpwbackuplabel");
                     for (var i = 0; i < elements.length; i++) {
+                        elements[i].innerHTML = "Shared Secret";
                         elements[i].style.display = "block";
                         elements[i].style.top = "25px";
                         elements[i].style.left = "116px";
                         elements[i].style.color = "#a90000";
                         elements[i].style.fontsize = "140%";
                     }
+                    document.getElementById('results').style.width = "704px";
                     document.getElementById('qrcode_public').style.top = "112px";
                     document.getElementById('qrcode_public').style.left = "43px";
                     document.getElementById('qrcode_public').style.height = "160px";
@@ -7828,18 +7891,57 @@ ninja.foreachSerialized = function (collection, whatToDo, onComplete) {
                     document.getElementById('private').style.transform = "rotate(0deg)";
                     document.getElementById('private').style.msTransform = "rotate(0deg)";
                     document.getElementById('private').style.webkitTransform = "rotate(0deg)";
+                    document.getElementById('walletlabel').innerHTML = "BIP38 Encrypted Bitcoin Wallet";
+                    document.getElementById('walletlabel').style.top = "29px";
+                    document.getElementById('walletlabel').style.left = "115px";
                     document.getElementById('walletlabel').style.display = "block";
+                    document.getElementById('encryptedprivatelabel').innerHTML = "ENCRYPTED PRIVATE KEY";
+                    document.getElementById('encryptedprivatelabel').style.top = "85px";
+                    document.getElementById('encryptedprivatelabel').style.left = "492px";
                     document.getElementById('encryptedprivatelabel').style.display = "block";
+                    document.getElementById('publiclabel').innerHTML = "PUBLIC ADDRESS";
+                    document.getElementById('publiclabel').style.top = "85px";
+                    document.getElementById('publiclabel').style.left = "71px";
                     document.getElementById('publiclabel').style.display = "block";
                 }
-                if (themename == "Light Swirl") {
-                    document.getElementById('front').setAttribute("src", "lightswirl.jpg");
-                    document.getElementById('front').style.width = "704px";
-                    document.getElementById('front').style.height = "396px";
+                if (themename == "Hex (Wide)") {
+                    document.getElementById('subtheme').options.length = 0;
+                    var opt = document.createElement('option');
+                    opt.value = "images/widehexoriginal.jpg";
+                    opt.innerHTML = "Original";
+                    document.getElementById('subtheme').appendChild(opt);
+                    var opt1 = document.createElement('option');
+                    opt1.value = "images/widehexred.jpg";
+                    opt1.innerHTML = "Red";
+                    document.getElementById('subtheme').appendChild(opt1);
+                    var opt2 = document.createElement('option');
+                    opt2.value = "images/widehexorange.jpg";
+                    opt2.innerHTML = "Orange";
+                    document.getElementById('subtheme').appendChild(opt2);
+                    var opt3 = document.createElement('option');
+                    opt3.value = "images/widehexyellow.jpg";
+                    opt3.innerHTML = "Yellow";
+                    document.getElementById('subtheme').appendChild(opt3);
+                    var opt4 = document.createElement('option');
+                    opt4.value = "images/widehexgreen.jpg";
+                    opt4.innerHTML = "Green";
+                    document.getElementById('subtheme').appendChild(opt4);
+                    var opt5 = document.createElement('option');
+                    opt5.value = "images/widehexblue.jpg";
+                    opt5.innerHTML = "Blue";
+                    document.getElementById('subtheme').appendChild(opt5);
+                    var opt6 = document.createElement('option');
+                    opt6.value = "images/widehexpurple.jpg";
+                    opt6.innerHTML = "Purple";
+                    document.getElementById('subtheme').appendChild(opt6);
+
+                    document.getElementById('front').setAttribute("src", "images/widehexoriginal.jpg");
+                    document.getElementById('front').style.width = "900px";
+                    document.getElementById('front').style.height = "382px";
 
                     var elements = document.getElementsByClassName("cback");
                     for (var i = 0; i < elements.length; i++) {
-                        elements[i].setAttribute("src", "back.jpg");
+                        elements[i].setAttribute("src", "images/sharedsecret.jpg");
                     }
                     elements = document.getElementsByClassName("cqrcode_pwbackup");
                     for (var i = 0; i < elements.length; i++) {
@@ -7858,153 +7960,78 @@ ninja.foreachSerialized = function (collection, whatToDo, onComplete) {
                     }
                     elements = document.getElementsByClassName("cpwbackuplabel");
                     for (var i = 0; i < elements.length; i++) {
+                        elements[i].innerHTML = "Shared Secret";
                         elements[i].style.display = "block";
                         elements[i].style.top = "25px";
                         elements[i].style.left = "116px";
                         elements[i].style.color = "#a90000";
                         elements[i].style.fontsize = "140%";
                     }
-                    document.getElementById('qrcode_public').style.top = "112px";
-                    document.getElementById('qrcode_public').style.left = "43px";
-                    document.getElementById('qrcode_public').style.height = "160px";
-                    document.getElementById('qrcode_public').style.width = "160px";
-                    document.getElementById('qrcode_private').style.top = "112px";
-                    document.getElementById('qrcode_private').style.left = "490px";
-                    document.getElementById('qrcode_private').style.height = "160px";
-                    document.getElementById('qrcode_private').style.width = "160px";
-                    document.getElementById('public').style.top = "304px";
-                    document.getElementById('public').style.left = "20px";
-                    document.getElementById('public').style.width = "215px";
-                    document.getElementById('public').style.fontSize = "160%";
-                    document.getElementById('private').style.top = "295px";
-                    document.getElementById('private').style.left = "459px";
-                    document.getElementById('private').style.width = "232px";
-                    document.getElementById('private').style.fontSize = "150%";
-                    document.getElementById('private').style.transform = "rotate(0deg)";
-                    document.getElementById('private').style.msTransform = "rotate(0deg)";
-                    document.getElementById('private').style.webkitTransform = "rotate(0deg)";
-                    document.getElementById('walletlabel').style.display = "block";
-                    document.getElementById('encryptedprivatelabel').style.display = "block";
-                    document.getElementById('publiclabel').style.display = "block";
-                }
-                if (themename == "Dark Swirl") {
-                    document.getElementById('front').setAttribute("src", "darkswirl.jpg");
-                    document.getElementById('front').style.width = "704px";
-                    document.getElementById('front').style.height = "396px";
-
-                    var elements = document.getElementsByClassName("cback");
-                    for (var i = 0; i < elements.length; i++) {
-                        elements[i].setAttribute("src", "back.jpg");
-                    }
-                    elements = document.getElementsByClassName("cqrcode_pwbackup");
-                    for (var i = 0; i < elements.length; i++) {
-                        elements[i].style.top = "130px";
-                        elements[i].style.left = "73px";
-                        elements[i].style.height = "200px";
-                        elements[i].style.width = "200px";
-                    }
-                    elements = document.getElementsByClassName("cpwbackup");
-                    for (var i = 0; i < elements.length; i++) {
-                        elements[i].style.top = "55px";
-                        elements[i].style.left = "20px";
-                        elements[i].style.width = "315px";
-                        elements[i].style.color = "#FFFFFF";
-                        elements[i].style.fontsize = "100%";
-                    }
-                    elements = document.getElementsByClassName("cpwbackuplabel");
-                    for (var i = 0; i < elements.length; i++) {
-                        elements[i].style.display = "block";
-                        elements[i].style.top = "25px";
-                        elements[i].style.left = "116px";
-                        elements[i].style.color = "#a90000";
-                        elements[i].style.fontsize = "140%";
-                    }
-                    document.getElementById('qrcode_public').style.top = "112px";
-                    document.getElementById('qrcode_public').style.left = "43px";
-                    document.getElementById('qrcode_public').style.height = "160px";
-                    document.getElementById('qrcode_public').style.width = "160px";
-                    document.getElementById('qrcode_private').style.top = "112px";
-                    document.getElementById('qrcode_private').style.left = "490px";
-                    document.getElementById('qrcode_private').style.height = "160px";
-                    document.getElementById('qrcode_private').style.width = "160px";
-                    document.getElementById('public').style.top = "304px";
-                    document.getElementById('public').style.left = "20px";
-                    document.getElementById('public').style.width = "215px";
-                    document.getElementById('public').style.fontSize = "160%";
-                    document.getElementById('private').style.top = "295px";
-                    document.getElementById('private').style.left = "459px";
-                    document.getElementById('private').style.width = "232px";
-                    document.getElementById('private').style.fontSize = "150%";
-                    document.getElementById('private').style.transform = "rotate(0deg)";
-                    document.getElementById('private').style.msTransform = "rotate(0deg)";
-                    document.getElementById('private').style.webkitTransform = "rotate(0deg)";
-                    document.getElementById('walletlabel').style.display = "block";
-                    document.getElementById('encryptedprivatelabel').style.display = "block";
-                    document.getElementById('publiclabel').style.display = "block";
-                }
-                if (themename == "Wide Blue") {
-                    document.getElementById('front').setAttribute("src", "wideblue.jpg");
-                    document.getElementById('front').style.width = "704px";
-                    document.getElementById('front').style.height = "300px";
-
-                    var elements = document.getElementsByClassName("cback");
-                    for (var i = 0; i < elements.length; i++) {
-                        elements[i].setAttribute("src", "back.jpg");
-                    }
-                    elements = document.getElementsByClassName("cqrcode_pwbackup");
-                    for (var i = 0; i < elements.length; i++) {
-                        elements[i].style.top = "130px";
-                        elements[i].style.left = "73px";
-                        elements[i].style.height = "200px";
-                        elements[i].style.width = "200px";
-                    }
-                    elements = document.getElementsByClassName("cpwbackup");
-                    for (var i = 0; i < elements.length; i++) {
-                        elements[i].style.top = "55px";
-                        elements[i].style.left = "20px";
-                        elements[i].style.width = "315px";
-                        elements[i].style.color = "#FFFFFF";
-                        elements[i].style.fontsize = "100%";
-                    }
-                    elements = document.getElementsByClassName("cpwbackuplabel");
-                    for (var i = 0; i < elements.length; i++) {
-                        elements[i].style.display = "block";
-                        elements[i].style.top = "25px";
-                        elements[i].style.left = "116px";
-                        elements[i].style.color = "#a90000";
-                        elements[i].style.fontsize = "140%";
-                    }
-                    document.getElementById('qrcode_public').style.top = "180px";
-                    document.getElementById('qrcode_public').style.left = "14px";
-                    document.getElementById('qrcode_public').style.height = "97px";
-                    document.getElementById('qrcode_public').style.width = "97px";
-                    document.getElementById('qrcode_private').style.top = "16px";
-                    document.getElementById('qrcode_private').style.left = "583px";
-                    document.getElementById('qrcode_private').style.height = "97px";
-                    document.getElementById('qrcode_private').style.width = "97px";
-                    document.getElementById('public').style.top = "270px";
-                    document.getElementById('public').style.left = "79px";
+                    document.getElementById('results').style.width = "900px";
+                    document.getElementById('qrcode_public').style.top = "229px";
+                    document.getElementById('qrcode_public').style.left = "18px";
+                    document.getElementById('qrcode_public').style.height = "127px";
+                    document.getElementById('qrcode_public').style.width = "127px";
+                    document.getElementById('qrcode_private').style.top = "21px";
+                    document.getElementById('qrcode_private').style.left = "746px";
+                    document.getElementById('qrcode_private').style.height = "127px";
+                    document.getElementById('qrcode_private').style.width = "127px";
+                    document.getElementById('public').style.top = "345px";
+                    document.getElementById('public').style.left = "158px";
                     document.getElementById('public').style.width = "415px";
-                    document.getElementById('public').style.fontSize = "120%";
-                    document.getElementById('private').style.top = "18px";
-                    document.getElementById('private').style.left = "447px";
-                    document.getElementById('private').style.width = "122px";
-                    document.getElementById('private').style.fontSize = "110%";
+                    document.getElementById('public').style.fontSize = "140%";
+                    document.getElementById('private').style.top = "24px";
+                    document.getElementById('private').style.left = "575px";
+                    document.getElementById('private').style.width = "150px";
+                    document.getElementById('private').style.fontSize = "130%";
                     document.getElementById('private').style.transform = "rotate(0deg)";
                     document.getElementById('private').style.msTransform = "rotate(0deg)";
                     document.getElementById('private').style.webkitTransform = "rotate(0deg)";
+                    document.getElementById('walletlabel').innerHTML = "";
+                    document.getElementById('publiclabel').innerHTML = "";
+                    document.getElementById('encryptedprivatelabel').innerHTML = "";
                     document.getElementById('walletlabel').style.display = "none";
                     document.getElementById('encryptedprivatelabel').style.display = "none";
                     document.getElementById('publiclabel').style.display = "none";
                 }
-                if (themename == "Wide Orange") {
-                    document.getElementById('front').setAttribute("src", "wideorange.jpg");
-                    document.getElementById('front').style.width = "704px";
-                    document.getElementById('front').style.height = "300px";
+                if (themename == "Smooth (Wide)") {
+                    document.getElementById('subtheme').options.length = 0;
+                    var opt = document.createElement('option');
+                    opt.value = "images/widesmoothoriginal.jpg";
+                    opt.innerHTML = "Original";
+                    document.getElementById('subtheme').appendChild(opt);
+                    var opt1 = document.createElement('option');
+                    opt1.value = "images/widesmoothred.jpg";
+                    opt1.innerHTML = "Red";
+                    document.getElementById('subtheme').appendChild(opt1);
+                    var opt2 = document.createElement('option');
+                    opt2.value = "images/widesmoothorange.jpg";
+                    opt2.innerHTML = "Orange";
+                    document.getElementById('subtheme').appendChild(opt2);
+                    var opt3 = document.createElement('option');
+                    opt3.value = "images/widesmoothyellow.jpg";
+                    opt3.innerHTML = "Yellow";
+                    document.getElementById('subtheme').appendChild(opt3);
+                    var opt4 = document.createElement('option');
+                    opt4.value = "images/widesmoothgreen.jpg";
+                    opt4.innerHTML = "Green";
+                    document.getElementById('subtheme').appendChild(opt4);
+                    var opt5 = document.createElement('option');
+                    opt5.value = "images/widesmoothblue.jpg";
+                    opt5.innerHTML = "Blue";
+                    document.getElementById('subtheme').appendChild(opt5);
+                    var opt6 = document.createElement('option');
+                    opt6.value = "images/widesmoothpurple.jpg";
+                    opt6.innerHTML = "Purple";
+                    document.getElementById('subtheme').appendChild(opt6);
+
+                    document.getElementById('front').setAttribute("src", "images/widesmoothoriginal.jpg");
+                    document.getElementById('front').style.width = "900px";
+                    document.getElementById('front').style.height = "382px";
 
                     var elements = document.getElementsByClassName("cback");
                     for (var i = 0; i < elements.length; i++) {
-                        elements[i].setAttribute("src", "back.jpg");
+                        elements[i].setAttribute("src", "images/sharedsecret.jpg");
                     }
                     elements = document.getElementsByClassName("cqrcode_pwbackup");
                     for (var i = 0; i < elements.length; i++) {
@@ -8023,43 +8050,78 @@ ninja.foreachSerialized = function (collection, whatToDo, onComplete) {
                     }
                     elements = document.getElementsByClassName("cpwbackuplabel");
                     for (var i = 0; i < elements.length; i++) {
+                        elements[i].innerHTML = "Shared Secret";
                         elements[i].style.display = "block";
                         elements[i].style.top = "25px";
                         elements[i].style.left = "116px";
                         elements[i].style.color = "#a90000";
                         elements[i].style.fontsize = "140%";
                     }
-                    document.getElementById('qrcode_public').style.top = "180px";
-                    document.getElementById('qrcode_public').style.left = "14px";
-                    document.getElementById('qrcode_public').style.height = "97px";
-                    document.getElementById('qrcode_public').style.width = "97px";
-                    document.getElementById('qrcode_private').style.top = "16px";
-                    document.getElementById('qrcode_private').style.left = "583px";
-                    document.getElementById('qrcode_private').style.height = "97px";
-                    document.getElementById('qrcode_private').style.width = "97px";
-                    document.getElementById('public').style.top = "270px";
-                    document.getElementById('public').style.left = "79px";
+                    document.getElementById('results').style.width = "900px";
+                    document.getElementById('qrcode_public').style.top = "229px";
+                    document.getElementById('qrcode_public').style.left = "18px";
+                    document.getElementById('qrcode_public').style.height = "127px";
+                    document.getElementById('qrcode_public').style.width = "127px";
+                    document.getElementById('qrcode_private').style.top = "21px";
+                    document.getElementById('qrcode_private').style.left = "746px";
+                    document.getElementById('qrcode_private').style.height = "127px";
+                    document.getElementById('qrcode_private').style.width = "127px";
+                    document.getElementById('public').style.top = "345px";
+                    document.getElementById('public').style.left = "158px";
                     document.getElementById('public').style.width = "415px";
-                    document.getElementById('public').style.fontSize = "120%";
-                    document.getElementById('private').style.top = "18px";
-                    document.getElementById('private').style.left = "447px";
-                    document.getElementById('private').style.width = "122px";
-                    document.getElementById('private').style.fontSize = "110%";
+                    document.getElementById('public').style.fontSize = "140%";
+                    document.getElementById('private').style.top = "24px";
+                    document.getElementById('private').style.left = "575px";
+                    document.getElementById('private').style.width = "150px";
+                    document.getElementById('private').style.fontSize = "130%";
                     document.getElementById('private').style.transform = "rotate(0deg)";
                     document.getElementById('private').style.msTransform = "rotate(0deg)";
                     document.getElementById('private').style.webkitTransform = "rotate(0deg)";
+                    document.getElementById('walletlabel').innerHTML = "";
+                    document.getElementById('publiclabel').innerHTML = "";
+                    document.getElementById('encryptedprivatelabel').innerHTML = "";
                     document.getElementById('walletlabel').style.display = "none";
                     document.getElementById('encryptedprivatelabel').style.display = "none";
                     document.getElementById('publiclabel').style.display = "none";
                 }
-                if (themename == "Wide Teal") {
-                    document.getElementById('front').setAttribute("src", "wideteal.jpg");
-                    document.getElementById('front').style.width = "704px";
-                    document.getElementById('front').style.height = "300px";
+                if (themename == "Cluster (Wide)") {
+                    document.getElementById('subtheme').options.length = 0;
+                    var opt = document.createElement('option');
+                    opt.value = "images/wideclusteroriginal.jpg";
+                    opt.innerHTML = "Original";
+                    document.getElementById('subtheme').appendChild(opt);
+                    var opt1 = document.createElement('option');
+                    opt1.value = "images/wideclusterred.jpg";
+                    opt1.innerHTML = "Red";
+                    document.getElementById('subtheme').appendChild(opt1);
+                    var opt2 = document.createElement('option');
+                    opt2.value = "images/wideclusterorange.jpg";
+                    opt2.innerHTML = "Orange";
+                    document.getElementById('subtheme').appendChild(opt2);
+                    var opt3 = document.createElement('option');
+                    opt3.value = "images/wideclusteryellow.jpg";
+                    opt3.innerHTML = "Yellow";
+                    document.getElementById('subtheme').appendChild(opt3);
+                    var opt4 = document.createElement('option');
+                    opt4.value = "images/wideclustergreen.jpg";
+                    opt4.innerHTML = "Green";
+                    document.getElementById('subtheme').appendChild(opt4);
+                    var opt5 = document.createElement('option');
+                    opt5.value = "images/wideclusterblue.jpg";
+                    opt5.innerHTML = "Blue";
+                    document.getElementById('subtheme').appendChild(opt5);
+                    var opt6 = document.createElement('option');
+                    opt6.value = "images/wideclusterpurple.jpg";
+                    opt6.innerHTML = "Purple";
+                    document.getElementById('subtheme').appendChild(opt6);
+
+                    document.getElementById('front').setAttribute("src", "images/wideclusteroriginal.jpg");
+                    document.getElementById('front').style.width = "900px";
+                    document.getElementById('front').style.height = "382px";
 
                     var elements = document.getElementsByClassName("cback");
                     for (var i = 0; i < elements.length; i++) {
-                        elements[i].setAttribute("src", "back.jpg");
+                        elements[i].setAttribute("src", "images/sharedsecret.jpg");
                     }
                     elements = document.getElementsByClassName("cqrcode_pwbackup");
                     for (var i = 0; i < elements.length; i++) {
@@ -8078,31 +8140,139 @@ ninja.foreachSerialized = function (collection, whatToDo, onComplete) {
                     }
                     elements = document.getElementsByClassName("cpwbackuplabel");
                     for (var i = 0; i < elements.length; i++) {
+                        elements[i].innerHTML = "Shared Secret";
                         elements[i].style.display = "block";
                         elements[i].style.top = "25px";
                         elements[i].style.left = "116px";
                         elements[i].style.color = "#a90000";
                         elements[i].style.fontsize = "140%";
                     }
-                    document.getElementById('qrcode_public').style.top = "180px";
-                    document.getElementById('qrcode_public').style.left = "14px";
-                    document.getElementById('qrcode_public').style.height = "97px";
-                    document.getElementById('qrcode_public').style.width = "97px";
-                    document.getElementById('qrcode_private').style.top = "16px";
-                    document.getElementById('qrcode_private').style.left = "583px";
-                    document.getElementById('qrcode_private').style.height = "97px";
-                    document.getElementById('qrcode_private').style.width = "97px";
-                    document.getElementById('public').style.top = "270px";
-                    document.getElementById('public').style.left = "79px";
+                    document.getElementById('results').style.width = "900px";
+                    document.getElementById('qrcode_public').style.top = "229px";
+                    document.getElementById('qrcode_public').style.left = "18px";
+                    document.getElementById('qrcode_public').style.height = "127px";
+                    document.getElementById('qrcode_public').style.width = "127px";
+                    document.getElementById('qrcode_private').style.top = "21px";
+                    document.getElementById('qrcode_private').style.left = "746px";
+                    document.getElementById('qrcode_private').style.height = "127px";
+                    document.getElementById('qrcode_private').style.width = "127px";
+                    document.getElementById('public').style.top = "345px";
+                    document.getElementById('public').style.left = "158px";
                     document.getElementById('public').style.width = "415px";
-                    document.getElementById('public').style.fontSize = "120%";
-                    document.getElementById('private').style.top = "18px";
-                    document.getElementById('private').style.left = "447px";
-                    document.getElementById('private').style.width = "122px";
-                    document.getElementById('private').style.fontSize = "110%";
+                    document.getElementById('public').style.fontSize = "140%";
+                    document.getElementById('private').style.top = "24px";
+                    document.getElementById('private').style.left = "575px";
+                    document.getElementById('private').style.width = "150px";
+                    document.getElementById('private').style.fontSize = "130%";
                     document.getElementById('private').style.transform = "rotate(0deg)";
                     document.getElementById('private').style.msTransform = "rotate(0deg)";
                     document.getElementById('private').style.webkitTransform = "rotate(0deg)";
+                    document.getElementById('walletlabel').innerHTML = "";
+                    document.getElementById('publiclabel').innerHTML = "";
+                    document.getElementById('encryptedprivatelabel').innerHTML = "";
+                    document.getElementById('walletlabel').style.display = "none";
+                    document.getElementById('encryptedprivatelabel').style.display = "none";
+                    document.getElementById('publiclabel').style.display = "none";
+                }
+
+                if (themename == "Bitcoin Bills") {
+                    document.getElementById('subtheme').options.length = 0;
+                    var opt = document.createElement('option');
+                    opt.value = "images/1btc.jpg";
+                    opt.innerHTML = "1 BTC";
+                    document.getElementById('subtheme').appendChild(opt);
+                    var opt1 = document.createElement('option');
+                    opt1.value = "images/5btc.jpg";
+                    opt1.innerHTML = "5 BTC";
+                    document.getElementById('subtheme').appendChild(opt1);
+                    var opt2 = document.createElement('option');
+                    opt2.value = "images/10btc.jpg";
+                    opt2.innerHTML = "10 BTC";
+                    document.getElementById('subtheme').appendChild(opt2);
+                    var opt3 = document.createElement('option');
+                    opt3.value = "images/50btc.jpg";
+                    opt3.innerHTML = "50 BTC";
+                    document.getElementById('subtheme').appendChild(opt3);
+                    var opt4 = document.createElement('option');
+                    opt4.value = "images/1mbtc.jpg";
+                    opt4.innerHTML = "1 mBTC";
+                    document.getElementById('subtheme').appendChild(opt4);
+                    var opt5 = document.createElement('option');
+                    opt5.value = "images/5mbtc.jpg";
+                    opt5.innerHTML = "5 mBTC";
+                    document.getElementById('subtheme').appendChild(opt5);
+                    var opt6 = document.createElement('option');
+                    opt6.value = "images/10mbtc.jpg";
+                    opt6.innerHTML = "10 mBTC";
+                    document.getElementById('subtheme').appendChild(opt6);
+                    var opt7 = document.createElement('option');
+                    opt7.value = "images/50mbtc.jpg";
+                    opt7.innerHTML = "50 mBTC";
+                    document.getElementById('subtheme').appendChild(opt7);
+                    var opt8 = document.createElement('option');
+                    opt8.value = "images/100mbtc.jpg";
+                    opt8.innerHTML = "100 mBTC";
+                    document.getElementById('subtheme').appendChild(opt8);
+                    var opt9 = document.createElement('option');
+                    opt9.value = "images/500mbtc.jpg";
+                    opt9.innerHTML = "500 mBTC";
+                    document.getElementById('subtheme').appendChild(opt9);
+
+                    document.getElementById('front').setAttribute("src", "images/1btc.jpg");
+                    document.getElementById('front').style.width = "704px";
+                    document.getElementById('front').style.height = "396px";
+
+                    var elements = document.getElementsByClassName("cback");
+                    for (var i = 0; i < elements.length; i++) {
+                        elements[i].setAttribute("src", "images/sharedsecret.jpg");
+                    }
+                    elements = document.getElementsByClassName("cqrcode_pwbackup");
+                    for (var i = 0; i < elements.length; i++) {
+                        elements[i].style.top = "130px";
+                        elements[i].style.left = "73px";
+                        elements[i].style.height = "200px";
+                        elements[i].style.width = "200px";
+                    }
+                    elements = document.getElementsByClassName("cpwbackup");
+                    for (var i = 0; i < elements.length; i++) {
+                        elements[i].style.top = "55px";
+                        elements[i].style.left = "20px";
+                        elements[i].style.width = "315px";
+                        elements[i].style.color = "#FFFFFF";
+                        elements[i].style.fontsize = "100%";
+                    }
+                    elements = document.getElementsByClassName("cpwbackuplabel");
+                    for (var i = 0; i < elements.length; i++) {
+                        elements[i].innerHTML = "Shared Secret";
+                        elements[i].style.display = "block";
+                        elements[i].style.top = "25px";
+                        elements[i].style.left = "116px";
+                        elements[i].style.color = "#a90000";
+                        elements[i].style.fontsize = "140%";
+                    }
+                    document.getElementById('results').style.width = "704px";
+                    document.getElementById('qrcode_public').style.top = "10px";
+                    document.getElementById('qrcode_public').style.left = "10px";
+                    document.getElementById('qrcode_public').style.height = "190px";
+                    document.getElementById('qrcode_public').style.width = "190px";
+                    document.getElementById('qrcode_private').style.top = "246px";
+                    document.getElementById('qrcode_private').style.left = "552px";
+                    document.getElementById('qrcode_private').style.height = "130px";
+                    document.getElementById('qrcode_private').style.width = "130px";
+                    document.getElementById('public').style.top = "222px";
+                    document.getElementById('public').style.left = "28px";
+                    document.getElementById('public').style.width = "160px";
+                    document.getElementById('public').style.fontSize = "120%";
+                    document.getElementById('private').style.top = "126px";
+                    document.getElementById('private').style.left = "550px";
+                    document.getElementById('private').style.width = "140px";
+                    document.getElementById('private').style.fontSize = "90%";
+                    document.getElementById('private').style.transform = "rotate(90deg)";
+                    document.getElementById('private').style.msTransform = "rotate(90deg)";
+                    document.getElementById('private').style.webkitTransform = "rotate(90deg)";
+                    document.getElementById('walletlabel').innerHTML = "";
+                    document.getElementById('publiclabel').innerHTML = "";
+                    document.getElementById('encryptedprivatelabel').innerHTML = "";
                     document.getElementById('walletlabel').style.display = "none";
                     document.getElementById('encryptedprivatelabel').style.display = "none";
                     document.getElementById('publiclabel').style.display = "none";
@@ -8246,31 +8416,29 @@ ninja.foreachSerialized = function (collection, whatToDo, onComplete) {
                 var div = document.createElement("div");
                 div.setAttribute("id", "printcontrols");
                 div.innerHTML = "<input class='submit' style='margin: 0 0 20px 0;' type='button' value='Print Wallet' onclick='window.print();' /><br />";
-                div.innerHTML += "Choose Theme:<br /><select name='theme' onchange='ninja.wallets.theme.change(this.options[this.selectedIndex].value)'><option value='Original Orange' selected>Orignal Orange</option><option value='Original White'>Original White</option><option value='Light Swirl'>Light Swirl</option><option value='Dark Swirl'>Dark Swirl</option><option value='Wide Blue'>Wide Blue</option><option value='Wide Orange'>Wide Orange</option><option value='Wide Teal'>Wide Teal</option></select><br /><br />";
-                
+                div.innerHTML += "Theme: <select name='theme' onchange='ninja.wallets.theme.change(this.options[this.selectedIndex].value)'><option value='Cluster (Wide)' selected>Cluster (Wide)</option><option value='Hex (Wide)'>Hex (Wide)</option><option value='Smooth (Wide)'>Smooth (Wide)</option><option value='Bitcoin Bills'>Bitcoin Bills</option><option value='Constellation'>Constellation</option><option value='Swirl'>Swirl</option></select>";
+                div.innerHTML += " Style: <select name='style' id='subtheme' onchange='ninja.wallets.subtheme.change(this.options[this.selectedIndex].value)'><option value='Original' selected>Original</option></select><br /><br />";
+
                 document.getElementById("sharedkeyarea").appendChild(div);
 
                 var divwallet = document.createElement("div");
                 divwallet.setAttribute("id", "paperwallet");
 
                 var frontimg = document.createElement("img");
-                frontimg.setAttribute("src", "originalorange.jpg");
                 frontimg.setAttribute("id", "front");
                 divwallet.appendChild(frontimg);
 
                 var wallab = document.createElement("div");
                 wallab.setAttribute("id", "walletlabel");
-                wallab.innerHTML = "BIP38 Encrypted Bitcoin Wallet";
                 divwallet.appendChild(wallab);
 
                 var publab = document.createElement("div");
                 publab.setAttribute("id", "publiclabel");
-                publab.innerHTML = "PUBLIC ADDRESS";
                 divwallet.appendChild(publab);
 
                 var prilab = document.createElement("div");
                 prilab.setAttribute("id", "encryptedprivatelabel");
-                prilab.innerHTML = "ENCRYPTED PRIVATE KEY";
+                
                 divwallet.appendChild(prilab);
 
                 var pubcanvas = ninja.qrCode.createCanvas(bitcoinAddress, 0);
@@ -8296,8 +8464,7 @@ ninja.foreachSerialized = function (collection, whatToDo, onComplete) {
                 divwallet.appendChild(div);
 
                 document.getElementById("sharedkeyarea").appendChild(divwallet);
-
-
+                
                 if (document.getElementById('backup').checked) {
                     var pwHex = secrets.str2hex(document.getElementById('encryptpassphrase').value);
                     var shares = secrets.share(pwHex, parseInt(document.getElementById('backupshares').value), parseInt(document.getElementById('backupsharesrequired').value), 768);
@@ -8306,7 +8473,6 @@ ninja.foreachSerialized = function (collection, whatToDo, onComplete) {
                         divpwbackup.setAttribute("id", "paperwallet");
 
                         var backimg = document.createElement("img");
-                        backimg.setAttribute("src", "back.jpg");
                         backimg.setAttribute("id", "back");
                         backimg.setAttribute("class", "cback");
                         divpwbackup.appendChild(backimg);
@@ -8314,7 +8480,6 @@ ninja.foreachSerialized = function (collection, whatToDo, onComplete) {
                         var div = document.createElement("div");
                         div.setAttribute("id", "pwbackuplabel");
                         div.setAttribute("class", "cpwbackuplabel");
-                        div.innerHTML = "Shared Secret";
                         divpwbackup.appendChild(div);
 
                         var pwbackupcanvas = ninja.qrCode.createCanvas(shares[i], 1);
@@ -8340,6 +8505,8 @@ ninja.foreachSerialized = function (collection, whatToDo, onComplete) {
                 div.innerHTML = "<input class='submit' style='margin: 0 0 20px 0;' type='button' value='Print Wallet' onclick='window.print();' />";
 
                 document.getElementById("sharedkeyarea").appendChild(div);
+
+                ninja.wallets.theme.change("Cluster (Wide)");
 
                 document.getElementById("busyblock").className = "";
             },
@@ -8388,32 +8555,29 @@ ninja.foreachSerialized = function (collection, whatToDo, onComplete) {
                     document.getElementById("results").style.display = "block";
 
                     var div = document.createElement("div");
-                    div.innerHTML = "<input class='submit' style='margin: 0 0 20px 0;' type='button' value='Print Wallet' onclick='window.print();' />";
+                    div.innerHTML = "<input class='submit' style='margin: 0 0 20px 0;' type='button' value='Print Wallet' onclick='window.print();' /><br />";
+                    div.innerHTML += "Theme: <select name='theme' onchange='ninja.wallets.theme.change(this.options[this.selectedIndex].value)'><option value='Cluster (Wide)' selected>Cluster (Wide)</option><option value='Hex (Wide)'>Hex (Wide)</option><option value='Smooth (Wide)'>Smooth (Wide)</option><option value='Bitcoin Bills'>Bitcoin Bills</option><option value='Constellation'>Constellation</option><option value='Swirl'>Swirl</option></select>";
+                    div.innerHTML += " Style: <select name='style' id='subtheme' onchange='ninja.wallets.subtheme.change(this.options[this.selectedIndex].value)'><option value='Original' selected>Original</option></select><br /><br />";
 
                     document.getElementById("sharedkeyarea").appendChild(div);
 
                     var divwallet = document.createElement("div");
                     divwallet.setAttribute("id", "paperwallet");
 
-
                     var frontimg = document.createElement("img");
-                    frontimg.setAttribute("src", "originalorange.jpg");
                     frontimg.setAttribute("id", "front");
                     divwallet.appendChild(frontimg);
 
                     var wallab = document.createElement("div");
                     wallab.setAttribute("id", "walletlabel");
-                    wallab.innerHTML = "Unencrypted Bitcoin Wallet";
                     divwallet.appendChild(wallab);
 
                     var publab = document.createElement("div");
                     publab.setAttribute("id", "publiclabel");
-                    publab.innerHTML = "PUBLIC ADDRESS";
                     divwallet.appendChild(publab);
 
                     var prilab = document.createElement("div");
                     prilab.setAttribute("id", "privatelabel");
-                    prilab.innerHTML = "PRIVATE KEY";
                     divwallet.appendChild(prilab);
 
                     var pubcanvas = ninja.qrCode.createCanvas(bitcoinAddress, 0);
@@ -8440,6 +8604,7 @@ ninja.foreachSerialized = function (collection, whatToDo, onComplete) {
 
                     document.getElementById("sharedkeyarea").appendChild(divwallet);
 
+                    ninja.wallets.theme.change("Cluster (Wide)");
 
                 }
             }
